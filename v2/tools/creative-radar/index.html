@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="买量创意雷达：短剧与漫剧热点、创意价值与剧情节点研究工作台">
+  <title>买量创意雷达 · 短剧与漫剧创意库</title>
+  <link rel="stylesheet" href="./styles.css?v=20260914-6">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="买量创意雷达首页">
+        <span class="brand-mark" aria-hidden="true">买量</span>
+        <span>
+          <strong>买量创意雷达</strong>
+          <small>面向中国创策 · 短剧与漫剧素材研究</small>
+        </span>
+      </a>
+      <div class="topbar-meta">
+        <span class="snapshot-dot" aria-hidden="true"></span>
+        <span id="snapshotStatus">正在读取样本快照</span>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="section-nav" aria-label="内容板块">
+        <div class="section-nav-inner" role="tablist" aria-label="内容板块">
+          <p class="section-nav-label">内容板块</p>
+          <button class="section-nav-link active" id="shortDramaTab" type="button" role="tab" aria-selected="true" aria-controls="shortDramaPanel" data-module-tab="short-drama">
+            <span><i aria-hidden="true">01</i>短剧</span>
+            <b id="navShortDrama">--</b>
+          </button>
+          <button class="section-nav-link" id="mangaTab" type="button" role="tab" aria-selected="false" aria-controls="mangaPanel" data-module-tab="manga" tabindex="-1">
+            <span><i aria-hidden="true">02</i>漫剧</span>
+            <b id="navManga">--</b>
+          </button>
+          <p class="section-nav-meta" id="navSummary">正在读取统一样本</p>
+        </div>
+      </aside>
+
+      <div class="page">
+        <section class="page-head" aria-labelledby="pageTitle">
+          <div>
+          <p class="eyebrow">内容库 / 样本快照</p>
+            <h1 id="pageTitle">买量创意雷达</h1>
+            <p class="page-head-copy">用中文研究国内外热门剧情：找开场吸引点、拆冲突反转、看关键画面，为买量创意积累素材。</p>
+          </div>
+          <button class="secondary-button" id="resetButton" type="button">重置当前筛选</button>
+        </section>
+
+        <div id="errorState" class="state-panel error-state" hidden>
+          <strong>样本快照读取失败</strong>
+          <p>请通过本目录启动 HTTP 服务后再打开页面；直接使用 file:// 会被浏览器阻止读取 JSON。</p>
+        </div>
+
+        <section id="shortDramaPanel" class="catalog-section module-panel" data-content-section="short-drama" role="tabpanel" aria-labelledby="shortDramaTab">
+          <div class="results-head module-head">
+            <div>
+              <div class="section-title-row"><span class="section-marker short-marker" aria-hidden="true"></span><h2 id="shortDramaTitle">短剧</h2></div>
+              <p>48 条样本 · DramaBox / GoodShort / 腾讯视频 / 优酷 / 阅文短剧</p>
+            </div>
+            <span id="shortDramaCount" class="result-count" aria-live="polite">读取中</span>
+          </div>
+          <div class="view-tabs" id="shortScopeTabs" role="tablist" aria-label="短剧范围">
+            <button class="view-tab active" id="shortFocusTab" type="button" role="tab" aria-selected="true" data-scope="focus">本周重点 <b id="shortFocusCount">--</b></button>
+            <button class="view-tab" id="shortAllTab" type="button" role="tab" aria-selected="false" data-scope="all">全部样本 <b id="shortAllCount">--</b></button>
+            <button class="view-tab" id="shortOverseasTab" type="button" role="tab" aria-selected="false" data-scope="overseas">海外短剧 <b id="shortOverseasCount">--</b></button>
+            <button class="view-tab" id="shortDomesticTab" type="button" role="tab" aria-selected="false" data-scope="domestic">国内短剧 <b id="shortDomesticCount">--</b></button>
+          </div>
+          <section class="filter-panel module-filter" aria-label="短剧筛选">
+            <div class="filters">
+              <label class="search-field"><span aria-hidden="true">⌕</span><input id="shortSearchInput" type="search" placeholder="搜索短剧标题、平台或题材" autocomplete="off"></label>
+              <label><span class="sr-only">市场</span><select id="shortMarketFilter"><option value="all">国内 + 海外</option><option value="domestic">国内</option><option value="overseas">海外</option></select></label>
+              <label><span class="sr-only">平台</span><select id="shortPlatformFilter"><option value="all">全部短剧平台</option></select></label>
+              <label><span class="sr-only">频向</span><select id="shortAudienceFilter"><option value="all">全部频向</option><option value="female">女频向</option><option value="male">男频向</option><option value="neutral">中性待判</option></select></label>
+              <label><span class="sr-only">时长</span><select id="shortDurationFilter"><option value="all">任意时长</option><option value="short">≤ 15 分钟</option><option value="medium">15–30 分钟</option><option value="long">30 分钟以上</option><option value="unknown">时长待核验</option></select></label>
+              <label><span class="sr-only">排序</span><select id="shortSortFilter"><option value="value">买量创策价值</option><option value="views">公开热度最高</option><option value="latest">最新发布</option><option value="hook">编辑评分最高</option><option value="shortest">时长最短</option><option value="longest">时长最长</option></select></label>
+            </div>
+            <div class="tag-strip" aria-label="短剧题材快捷筛选"><span class="tag-strip-label">题材</span><button class="tag-chip active" data-tag="all" data-module-tag="short-drama" type="button">全部</button><div id="shortTagChips" class="tag-chip-list"></div></div>
+          </section>
+          <div id="shortDramaGrid" class="catalog-grid" aria-live="polite"></div>
+        </section>
+
+        <section id="mangaPanel" class="catalog-section module-panel" data-content-section="manga" role="tabpanel" aria-labelledby="mangaTab" hidden>
+          <div class="results-head module-head">
+            <div>
+              <div class="section-title-row"><span class="section-marker manga-marker" aria-hidden="true"></span><h2 id="mangaTitle">漫剧</h2></div>
+              <p>40 条样本 · B站 / 爱奇艺 / Baichuan Comics / Supreme Anime Drama</p>
+            </div>
+            <span id="mangaCount" class="result-count" aria-live="polite">读取中</span>
+          </div>
+          <div class="view-tabs" id="mangaScopeTabs" role="tablist" aria-label="漫剧范围">
+            <button class="view-tab active" id="mangaFocusTab" type="button" role="tab" aria-selected="true" data-scope="focus">本周重点 <b id="mangaFocusCount">--</b></button>
+            <button class="view-tab" id="mangaDeepTab" type="button" role="tab" aria-selected="false" data-scope="deep">深度跟踪 <b id="mangaDeepCount">--</b></button>
+            <button class="view-tab" id="mangaAllTab" type="button" role="tab" aria-selected="false" data-scope="all">完整样本池 <b id="mangaAllCount">--</b></button>
+          </div>
+          <section class="filter-panel module-filter" aria-label="漫剧筛选">
+            <div class="filters">
+              <label class="search-field"><span aria-hidden="true">⌕</span><input id="mangaSearchInput" type="search" placeholder="搜索漫剧标题、平台或题材" autocomplete="off"></label>
+              <label><span class="sr-only">市场</span><select id="mangaMarketFilter"><option value="all">国内 + 海外</option><option value="domestic">国内</option><option value="overseas">海外</option></select></label>
+              <label><span class="sr-only">平台</span><select id="mangaPlatformFilter"><option value="all">全部漫剧平台</option></select></label>
+              <label><span class="sr-only">频向</span><select id="mangaAudienceFilter"><option value="all">全部频向</option><option value="female">女频向</option><option value="male">男频向</option><option value="neutral">中性待判</option></select></label>
+              <label><span class="sr-only">时长</span><select id="mangaDurationFilter"><option value="all">任意时长</option><option value="short">≤ 45 分钟</option><option value="medium">45–120 分钟</option><option value="long">120 分钟以上</option><option value="unknown">时长待核验</option></select></label>
+              <label><span class="sr-only">排序</span><select id="mangaSortFilter"><option value="value">买量创策价值</option><option value="views">公开热度最高</option><option value="latest">最新发布</option><option value="hook">编辑评分最高</option><option value="longest">时长最长</option><option value="shortest">时长最短</option></select></label>
+            </div>
+            <div class="tag-strip" aria-label="漫剧题材快捷筛选"><span class="tag-strip-label">题材</span><button class="tag-chip active" data-tag="all" data-module-tag="manga" type="button">全部</button><div id="mangaTagChips" class="tag-chip-list"></div></div>
+          </section>
+          <div id="mangaGrid" class="catalog-grid" aria-live="polite"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div id="detailModal" class="modal" hidden>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow" id="detailEyebrow">样本详情</p>
+          <h2 id="detailTitle"></h2>
+          <p id="detailSubtitle" class="modal-subtitle"></p><details id="originalTitleDisclosure" class="provenance-note" hidden><summary>查看来源原标题（中文标题为整理译名）</summary><p id="detailOriginalTitle"></p></details>
+        </div>
+        <button class="icon-button" id="closeModal" type="button" title="关闭详情" aria-label="关闭详情">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="detail-layout">
+          <div>
+            <div id="detailMedia" class="detail-media" aria-describedby="playerStatus"></div>
+            <p id="playerStatus" class="provenance-note" role="status" aria-live="polite"></p>
+            <div class="detail-meta" id="detailMeta"></div>
+            <div id="detailActions" class="detail-actions"></div>
+          </div>
+          <aside class="detail-side">
+            <div class="detail-block">
+              <span class="detail-label">开场吸引点</span>
+              <p id="detailFirst10"></p>
+            </div>
+            <div class="detail-block">
+              <span class="detail-label">剧情梗概</span>
+              <p id="detailSynopsis"></p>
+            </div>
+            <div class="detail-block">
+              <span class="detail-label">冲突升级</span>
+              <p id="detailRise"></p>
+            </div>
+            <div class="detail-block">
+              <span class="detail-label">追看悬念</span>
+              <p id="detailPromise"></p>
+            </div>
+            <p id="detailScope" class="provenance-note"></p>
+          </aside>
+        </div>
+        <section class="timeline-section" aria-labelledby="timelineTitle">
+          <div class="section-heading"><h3 id="timelineTitle">剧情 / 冲突节点</h3><span id="timelineHint"></span></div>
+          <div id="timeline" class="timeline"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="./node-analysis.js?v=20260915-2" defer></script><script src="./localization.js?v=20260915-4" defer></script><script src="./app.js?v=20260915-4" defer></script>
+</body>
+</html>
