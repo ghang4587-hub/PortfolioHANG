@@ -155,3 +155,8 @@ Chromium 102 与 Edge 154 的 320–1440 像素尺寸、手机横屏及主要交
 ## 竖屏隐藏肖像下方主题按钮 — 2026-10-08
 
 竖屏时隐藏关于我肖像下方的黑金、波谱按钮，不占用布局空间。保留横屏原有显示、肖像滑动切换和菜单中的主题选择。仅追加限定 `#about .portrait-theme-choices` 的方向媒体规则。修改前备份为 `artist-portfolio-v2-before-portrait-buttons-20261008.zip`，对应发布提交 `1a9aba1`，已校验完整性与条目哈希。
+
+
+## 移除末页整页半透明遮罩 — 2026-10-08
+
+在 `#contact.work-recap` 上声明 `background: transparent`，清除继承的黑金与波谱主题渐变，让共用流光直接透出。仅更改末页整页背景；HANG 字内蒙版、作品卡片材质、动画、联系方式和布局保持原样。修改前备份为 `artist-portfolio-v2-before-footer-transparent-20261008.zip`，对应发布提交 `59b138a`，已校验完整性与条目哈希。
