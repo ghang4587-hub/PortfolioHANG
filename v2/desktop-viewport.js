@@ -1,7 +1,4 @@
-<!doctype html><html lang="zh-CN"><head>
-<link rel="preload" as="image" href="../assets/hero.webp" fetchpriority="high"><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/><meta name="description" content="高航的个人作品集：AI影像、实时交互、游戏与三维艺术。"/><link rel="icon" href="../favicon.svg"/><title>HANG — 创意与技术之间 · Portfolio V2</title>  <script type="module" crossorigin src="./assets/index-B6U32SNC.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CEVxjUta.css">
-  <script>/* Mobile landscape uses the existing desktop layout, with browser-native zoom. */
+/* Mobile landscape uses the existing desktop layout, with browser-native zoom. */
 (function () {
   'use strict';
   var viewport = document.querySelector('meta[name="viewport"]');
@@ -55,5 +52,3 @@
     window.screen.orientation.addEventListener('change', update);
   }
 }());
-</script>
-</head><body><div id="root"></div></body></html>
